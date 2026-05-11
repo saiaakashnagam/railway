@@ -1,12 +1,21 @@
 {
   "name": "team-task-manager",
   "version": "1.0.0",
+  "description": "Full-Stack Team Task Manager",
+  "main": "server/index.js",
   "scripts": {
-    "install:all": "npm install && cd client && npm install && cd ../server && npm install",
+    "build": "cd client && npm install && npm run build",
+    "start": "cd server && npm install && node index.js",
+    "dev": "npx concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
     "client": "cd client && npm run dev",
-    "server": "cd server && npm start",
-    "dev": "npx concurrently \"npm run server\" \"npm run client\""
+    "install:all": "npm install && cd client && npm install && cd ../server && npm install"
   },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "packageManager": "npm@10.2.4",
   "devDependencies": {
     "concurrently": "^8.2.2"
   }
